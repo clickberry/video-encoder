@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clickberry Encoder JavaScript Demo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <form action="http://localhost:51255/api/videos" method="POST" enctype="multipart/form-data" onsubmit=" return upload(this); ">
+            <input type="file" name="video" />
+            <button type="submit">Upload Video</button>
+        </form>
+        <script>
+            function upload(form) {
+                // build form data object
+                var $form = $(form);
+                var formData = new FormData(form);
+
+                // make AJAX request
+                $.ajax({
+                    url: $form.attr("action"),
+                    type: "POST",
+                    data: formData,
+                    enctype: 'multipart/form-data',
+                    processData: false, // tell jQuery not to process the data
+                    contentType: false, // tell jQuery not to set contentType
+                    statusCode: {
+                        // handle errors
+                        400: function() {
+                            alert("Bad Request!");
+                        },
+                        500: function() {
+                            alert("Server Error!");
+                        }
+                    }
+                }).done(function(data) {
+                    // handle response data here
+                    console.log(data);
+                });
+
+                // preventing page redirect
+                return false;
+            }
+        </script>
+    </body>
+</html>
