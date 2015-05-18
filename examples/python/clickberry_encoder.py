@@ -9,4 +9,4 @@ FILE = r'path/to/video.mp4'
 with open(FILE, 'rb') as file_data:
     FILES = {'file': ('video', file_data, 'video/mp4')}
     REQUEST = requests.post(URL, files=FILES)
-    print REQUEST.text
+    print REQUEST.json()
