@@ -1,0 +1,477 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "AWS::CloudFormation::Designer": {
+      "c2a96c39-8362-4d3e-98ac-b42ec056fb5a": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 437,
+          "y": 121
+        },
+        "z": 0,
+        "embeds": []
+      },
+      "1ce26d4d-7ce7-4b6b-b231-d68bca5b9c19": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 60,
+          "y": 90
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "a76d6505-5dfa-4e3a-bbf1-e89d5698971b": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 60,
+          "y": 90
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "e650d0f9-454b-49d0-87e6-135e87d4c0c3": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 430,
+          "y": 90
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "6877049d-edef-4db0-90e1-a22408e267fa": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 470,
+          "y": 120
+        },
+        "z": 1,
+        "embeds": [],
+        "isconnectedto": [
+          "b5498373-9021-4cd6-b03a-5e223747f581"
+        ],
+        "ismemberof": [
+          "90a8288b-11f2-4f6d-b301-d1daebf24ab9"
+        ],
+        "isrelatedto": [
+          "345ab82e-fa51-40bb-bb9a-2e3d347ac61d"
+        ]
+      },
+      "337a1b69-ae20-4d0e-8fb5-1d599a9515eb": {
+        "source": {
+          "id": "6877049d-edef-4db0-90e1-a22408e267fa"
+        },
+        "target": {
+          "id": "b5498373-9021-4cd6-b03a-5e223747f581"
+        },
+        "z": 2
+      },
+      "90a8288b-11f2-4f6d-b301-d1daebf24ab9": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 670,
+          "y": 120
+        },
+        "z": 1,
+        "embeds": []
+      },
+      "43182df9-a1ec-44b7-85e6-11e31fd894c0": {
+        "source": {
+          "id": "6877049d-edef-4db0-90e1-a22408e267fa"
+        },
+        "target": {
+          "id": "90a8288b-11f2-4f6d-b301-d1daebf24ab9"
+        },
+        "z": 2
+      },
+      "35fbe718-1ac8-4b06-9324-34c13f2f7312": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 249.77419832693064,
+          "y": 105.91398077427912
+        },
+        "z": 0,
+        "embeds": []
+      },
+      "79789432-35a5-4ca9-ae5d-0ea82095a5a5": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 367.33493078764326,
+          "y": 43.257570867947614
+        },
+        "z": 0,
+        "embeds": [],
+        "isassociatedwith": [
+          "35fbe718-1ac8-4b06-9324-34c13f2f7312"
+        ]
+      },
+      "345ab82e-fa51-40bb-bb9a-2e3d347ac61d": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 360.17888144246217,
+          "y": 203.55307620000374
+        },
+        "z": 0,
+        "embeds": [],
+        "isassociatedwith": [
+          "35fbe718-1ac8-4b06-9324-34c13f2f7312"
+        ]
+      },
+      "f4fb05f3-c2e8-4c24-b49f-ed0002a9559d": {
+        "source": {
+          "id": "345ab82e-fa51-40bb-bb9a-2e3d347ac61d"
+        },
+        "target": {
+          "id": "35fbe718-1ac8-4b06-9324-34c13f2f7312"
+        },
+        "z": 11
+      },
+      "ce6c9b06-b758-43b7-add7-4a02e7f40014": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 90,
+          "y": 110
+        },
+        "z": 0,
+        "embeds": []
+      },
+      "9943d76f-21d8-448c-a5c1-9be3639c22e6": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 160,
+          "y": 210
+        },
+        "z": 0,
+        "embeds": [],
+        "isrelatedto": [
+          "1cd4ce90-93d8-45eb-9d88-9d36ff27c664"
+        ]
+      },
+      "1cd4ce90-93d8-45eb-9d88-9d36ff27c664": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 20,
+          "y": 210
+        },
+        "z": 0,
+        "embeds": []
+      }
+    }
+  },
+  "Resources": {
+    "EncoderNode1": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "ami-31f4b354",
+        "InstanceType": {
+          "Ref": "InstanceType"
+        },
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "VolumeSize": "100"
+            }
+          }
+        ],
+        "SecurityGroupIds": [
+          {
+            "Ref": "EncoderSecurityGroup"
+          }
+        ],
+        "KeyName": {
+          "Ref": "KeyName"
+        },
+        "IamInstanceProfile": {
+          "Ref": "EncoderInstanceProfile"
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "6877049d-edef-4db0-90e1-a22408e267fa"
+        }
+      }
+    },
+    "EncoderSecurityGroup": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Enable RDP and HTTP access via port 80",
+        "SecurityGroupIngress": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "80",
+            "ToPort": "80",
+            "CidrIp": "0.0.0.0/0"
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": "3389",
+            "ToPort": "3389",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "90a8288b-11f2-4f6d-b301-d1daebf24ab9"
+        }
+      }
+    },
+    "EncoderRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::FindInMap": [
+                    "Region2Principal",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    "EC2Principal"
+                  ]
+                }
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "35fbe718-1ac8-4b06-9324-34c13f2f7312"
+        }
+      }
+    },
+    "EncoderPolicy": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "EncoderPolicy",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:*",
+                "sqs:*"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "EncoderRole"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "79789432-35a5-4ca9-ae5d-0ea82095a5a5"
+        }
+      }
+    },
+    "EncoderInstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "EncoderRole"
+          }
+        ]
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "345ab82e-fa51-40bb-bb9a-2e3d347ac61d"
+        }
+      }
+    },
+    "EncoderBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "AccessControl": "Private",
+        "BucketName": "encoder-bucket"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "ce6c9b06-b758-43b7-add7-4a02e7f40014"
+        }
+      }
+    },
+    "EncoderQueue": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "encoder-queue",
+        "RedrivePolicy": {
+          "deadLetterTargetArn": {
+            "Fn::GetAtt": [
+              "EncoderDeadLetterQueue",
+              "Arn"
+            ]
+          },
+          "maxReceiveCount": 10
+        }
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "9943d76f-21d8-448c-a5c1-9be3639c22e6"
+        }
+      }
+    },
+    "EncoderDeadLetterQueue": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "encoder-queue-dead"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "1cd4ce90-93d8-45eb-9d88-9d36ff27c664"
+        }
+      }
+    }
+  },
+  "Mappings": {
+    "Region2Principal": {
+      "us-east-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "us-west-2": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "us-west-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "eu-west-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "ap-southeast-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "ap-northeast-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "ap-southeast-2": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "sa-east-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      },
+      "cn-north-1": {
+        "EC2Principal": "ec2.amazonaws.com.cn",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com.cn"
+      },
+      "eu-central-1": {
+        "EC2Principal": "ec2.amazonaws.com",
+        "OpsWorksPrincipal": "opsworks.amazonaws.com"
+      }
+    }
+  },
+  "Parameters": {
+    "KeyName": {
+      "Description": "Name of an existing EC2 KeyPair to get RDP password for the instances",
+      "Type": "AWS::EC2::KeyPair::KeyName",
+      "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
+    },
+    "InstanceType": {
+      "Description": "Video Encoder Node instance type",
+      "Type": "String",
+      "Default": "m4.large",
+      "AllowedValues": [
+        "t2.micro",
+        "t2.small",
+        "t2.medium",
+        "t2.large",
+        "m3.medium",
+        "m3.large",
+        "m3.xlarge",
+        "m3.2xlarge",
+        "m4.large",
+        "m4.xlarge",
+        "m4.2xlarge",
+        "m4.4xlarge",
+        "m4.10xlarge",
+        "cc1.4xlarge",
+        "cc2.8xlarge",
+        "c3.large",
+        "c3.xlarge",
+        "c3.2xlarge",
+        "c3.4xlarge",
+        "c3.8xlarge",
+        "c4.large",
+        "c4.xlarge",
+        "c4.2xlarge",
+        "c4.4xlarge",
+        "c4.8xlarge",
+        "g2.2xlarge",
+        "g2.8xlarge",
+        "cg1.4xlarge",
+        "cr1.8xlarge",
+        "r3.large",
+        "r3.xlarge",
+        "r3.2xlarge",
+        "r3.4xlarge",
+        "r3.8xlarge",
+        "i2.xlarge",
+        "i2.2xlarge",
+        "i2.4xlarge",
+        "i2.8xlarge",
+        "d2.xlarge",
+        "d2.2xlarge",
+        "d2.4xlarge",
+        "d2.8xlarge",
+        "hi1.4xlarge",
+        "hs1.8xlarge"
+      ],
+      "ConstraintDescription": "must be a valid EC2 instance type."
+    }
+  }
+}
