@@ -194,10 +194,10 @@
     }
   },
   "Resources": {
-    "EncoderNode1": {
+    "EncoderNode": {
       "Type": "AWS::EC2::Instance",
       "Properties": {
-        "ImageId": "ami-31f4b354",
+        "ImageId": "ami-c21b2ca8",
         "InstanceType": {
           "Ref": "InstanceType"
         },
@@ -221,6 +221,7 @@
           "Ref": "EncoderInstanceProfile"
         }
       },
+      "DependsOn" : ["EncoderBucket", "EncoderQueue", "EncoderPolicy"],
       "Metadata": {
         "AWS::CloudFormation::Designer": {
           "id": "6877049d-edef-4db0-90e1-a22408e267fa"
@@ -293,10 +294,34 @@
             {
               "Effect": "Allow",
               "Action": [
-                "s3:*",
-                "sqs:*"
+                  "s3:ListBucket"
               ],
-              "Resource": "*"
+              "Resource": [
+                  "arn:aws:s3:::clickberry-encoder-files"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:*"
+              ],
+              "Resource": [
+                  "arn:aws:s3:::clickberry-encoder-files/*"
+              ]
+            },
+            {
+              "Resource": "arn:aws:sqs:*:*:clickberry-encoder-queue",
+              "Action": [
+                  "sqs:*"
+              ],
+              "Effect": "Allow"
+            },
+            {
+              "Resource": "arn:aws:sqs:*:*:clickberry-encoder-queue-dead",
+              "Action": [
+                  "sqs:*"
+              ],
+              "Effect": "Allow"
             }
           ]
         },
@@ -331,7 +356,7 @@
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "AccessControl": "Private",
-        "BucketName": "encoder-bucket"
+        "BucketName": "clickberry-encoder-files"
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
@@ -342,7 +367,7 @@
     "EncoderQueue": {
       "Type": "AWS::SQS::Queue",
       "Properties": {
-        "QueueName": "encoder-queue",
+        "QueueName": "clickberry-encoder-queue",
         "RedrivePolicy": {
           "deadLetterTargetArn": {
             "Fn::GetAtt": [
@@ -362,7 +387,7 @@
     "EncoderDeadLetterQueue": {
       "Type": "AWS::SQS::Queue",
       "Properties": {
-        "QueueName": "encoder-queue-dead"
+        "QueueName": "clickberry-encoder-queue-dead"
       },
       "Metadata": {
         "AWS::CloudFormation::Designer": {
