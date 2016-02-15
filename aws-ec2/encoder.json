@@ -1,198 +1,5 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Metadata": {
-    "AWS::CloudFormation::Designer": {
-      "c2a96c39-8362-4d3e-98ac-b42ec056fb5a": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 437,
-          "y": 121
-        },
-        "z": 0,
-        "embeds": []
-      },
-      "1ce26d4d-7ce7-4b6b-b231-d68bca5b9c19": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 60,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "a76d6505-5dfa-4e3a-bbf1-e89d5698971b": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 60,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "e650d0f9-454b-49d0-87e6-135e87d4c0c3": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 430,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "6877049d-edef-4db0-90e1-a22408e267fa": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 470,
-          "y": 120
-        },
-        "z": 1,
-        "embeds": [],
-        "isconnectedto": [
-          "b5498373-9021-4cd6-b03a-5e223747f581"
-        ],
-        "ismemberof": [
-          "90a8288b-11f2-4f6d-b301-d1daebf24ab9"
-        ],
-        "isrelatedto": [
-          "345ab82e-fa51-40bb-bb9a-2e3d347ac61d"
-        ]
-      },
-      "337a1b69-ae20-4d0e-8fb5-1d599a9515eb": {
-        "source": {
-          "id": "6877049d-edef-4db0-90e1-a22408e267fa"
-        },
-        "target": {
-          "id": "b5498373-9021-4cd6-b03a-5e223747f581"
-        },
-        "z": 2
-      },
-      "90a8288b-11f2-4f6d-b301-d1daebf24ab9": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 670,
-          "y": 120
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "43182df9-a1ec-44b7-85e6-11e31fd894c0": {
-        "source": {
-          "id": "6877049d-edef-4db0-90e1-a22408e267fa"
-        },
-        "target": {
-          "id": "90a8288b-11f2-4f6d-b301-d1daebf24ab9"
-        },
-        "z": 2
-      },
-      "35fbe718-1ac8-4b06-9324-34c13f2f7312": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 249.77419832693064,
-          "y": 105.91398077427912
-        },
-        "z": 0,
-        "embeds": []
-      },
-      "79789432-35a5-4ca9-ae5d-0ea82095a5a5": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 367.33493078764326,
-          "y": 43.257570867947614
-        },
-        "z": 0,
-        "embeds": [],
-        "isassociatedwith": [
-          "35fbe718-1ac8-4b06-9324-34c13f2f7312"
-        ]
-      },
-      "345ab82e-fa51-40bb-bb9a-2e3d347ac61d": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 360.17888144246217,
-          "y": 203.55307620000374
-        },
-        "z": 0,
-        "embeds": [],
-        "isassociatedwith": [
-          "35fbe718-1ac8-4b06-9324-34c13f2f7312"
-        ]
-      },
-      "f4fb05f3-c2e8-4c24-b49f-ed0002a9559d": {
-        "source": {
-          "id": "345ab82e-fa51-40bb-bb9a-2e3d347ac61d"
-        },
-        "target": {
-          "id": "35fbe718-1ac8-4b06-9324-34c13f2f7312"
-        },
-        "z": 11
-      },
-      "ce6c9b06-b758-43b7-add7-4a02e7f40014": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 90,
-          "y": 110
-        },
-        "z": 0,
-        "embeds": []
-      },
-      "9943d76f-21d8-448c-a5c1-9be3639c22e6": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 160,
-          "y": 210
-        },
-        "z": 0,
-        "embeds": [],
-        "isrelatedto": [
-          "1cd4ce90-93d8-45eb-9d88-9d36ff27c664"
-        ]
-      },
-      "1cd4ce90-93d8-45eb-9d88-9d36ff27c664": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 20,
-          "y": 210
-        },
-        "z": 0,
-        "embeds": []
-      }
-    }
-  },
   "Resources": {
     "EncoderNode": {
       "Type": "AWS::EC2::Instance",
@@ -221,12 +28,7 @@
           "Ref": "EncoderInstanceProfile"
         }
       },
-      "DependsOn" : ["EncoderBucket", "EncoderQueue", "EncoderPolicy"],
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "6877049d-edef-4db0-90e1-a22408e267fa"
-        }
-      }
+      "DependsOn" : ["EncoderBucket", "EncoderQueue", "EncoderPolicy"]
     },
     "EncoderSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
@@ -246,11 +48,6 @@
             "CidrIp": "0.0.0.0/0"
           }
         ]
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "90a8288b-11f2-4f6d-b301-d1daebf24ab9"
-        }
       }
     },
     "EncoderRole": {
@@ -278,11 +75,6 @@
           ]
         },
         "Path": "/"
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "35fbe718-1ac8-4b06-9324-34c13f2f7312"
-        }
       }
     },
     "EncoderPolicy": {
@@ -330,11 +122,6 @@
             "Ref": "EncoderRole"
           }
         ]
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "79789432-35a5-4ca9-ae5d-0ea82095a5a5"
-        }
       }
     },
     "EncoderInstanceProfile": {
@@ -345,11 +132,6 @@
             "Ref": "EncoderRole"
           }
         ]
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "345ab82e-fa51-40bb-bb9a-2e3d347ac61d"
-        }
       }
     },
     "EncoderBucket": {
@@ -357,11 +139,6 @@
       "Properties": {
         "AccessControl": "Private",
         "BucketName": "clickberry-encoder-files"
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "ce6c9b06-b758-43b7-add7-4a02e7f40014"
-        }
       }
     },
     "EncoderQueue": {
@@ -377,22 +154,12 @@
           },
           "maxReceiveCount": 10
         }
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "9943d76f-21d8-448c-a5c1-9be3639c22e6"
-        }
       }
     },
     "EncoderDeadLetterQueue": {
       "Type": "AWS::SQS::Queue",
       "Properties": {
         "QueueName": "clickberry-encoder-queue-dead"
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "1cd4ce90-93d8-45eb-9d88-9d36ff27c664"
-        }
       }
     }
   },
