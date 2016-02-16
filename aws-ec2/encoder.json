@@ -1,8 +1,8 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Resources": {
-    "EncoderNode": {
-      "Type": "AWS::EC2::Instance",
+    "EncoderLaunchConfiguration" : {
+      "Type" : "AWS::AutoScaling::LaunchConfiguration",
       "Properties": {
         "ImageId": "ami-c21b2ca8",
         "InstanceType": {
@@ -16,7 +16,7 @@
             }
           }
         ],
-        "SecurityGroupIds": [
+        "SecurityGroups": [
           {
             "Ref": "EncoderSecurityGroup"
           }
@@ -27,8 +27,38 @@
         "IamInstanceProfile": {
           "Ref": "EncoderInstanceProfile"
         }
-      },
-      "DependsOn" : ["EncoderBucket", "EncoderQueue", "EncoderPolicy"]
+      }
+    },
+    "EncoderAutoScalingGroup" : {
+      "Type" : "AWS::AutoScaling::AutoScalingGroup",
+      "Properties" : {
+        "AvailabilityZones" : { "Fn::GetAZs" : ""},
+        "LaunchConfigurationName" : { "Ref" : "EncoderLaunchConfiguration" },
+        "MinSize" : "1",
+        "MaxSize" : "1024",
+        "DesiredCapacity" : { "Ref" : "InstanceCount" },
+        "LoadBalancerNames" : [ { "Ref" : "EncoderLoadBalancer" } ]
+      }
+    },
+    "EncoderLoadBalancer" : {
+      "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
+      "Properties" : {
+        "AvailabilityZones" : { "Fn::GetAZs" : "" },
+        "Listeners" : [{
+          "LoadBalancerPort" : "80",
+          "InstancePort" : "80",
+          "Protocol" : "HTTP"
+        }],
+        "HealthCheck" : {
+          "Target" : {
+            "Fn::Join" : [ "", [ "HTTP:", "80", "/" ] ]
+          },
+          "HealthyThreshold" : "2",
+          "UnhealthyThreshold" : "10",
+          "Interval" : "300",
+          "Timeout" : "60"
+        }
+      }
     },
     "EncoderSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
@@ -208,13 +238,20 @@
     }
   },
   "Parameters": {
+    "InstanceCount" : {
+      "Description" : "Number of instances to start",
+      "Default" : "3",
+      "Type" : "Number",
+      "MinValue" : "1",
+      "MaxValue" : "1024"
+    },    
     "KeyName": {
       "Description": "Name of an existing EC2 KeyPair to get RDP password for the instances",
       "Type": "AWS::EC2::KeyPair::KeyName",
       "ConstraintDescription": "must be the name of an existing EC2 KeyPair."
     },
     "InstanceType": {
-      "Description": "Video Encoder Node instance type",
+      "Description": "Instance type",
       "Type": "String",
       "Default": "m4.large",
       "AllowedValues": [
