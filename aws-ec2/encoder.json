@@ -3,6 +3,28 @@
   "Resources": {
     "EncoderLaunchConfiguration" : {
       "Type" : "AWS::AutoScaling::LaunchConfiguration",
+      "Metadata" : {
+        "AWS::CloudFormation::Init" : {
+          "config" : {
+            "commands" : {
+              "1-set-bucket": {
+                "command": { "Fn::Join" : ["", [
+                  "setx CLICKBERRY_BucketName ",
+                  {"Ref" : "FilesBucket" },
+                  " /m"
+                  ]]}
+              },
+              "2-set-queue": {
+                "command": { "Fn::Join" : ["", [
+                  "setx CLICKBERRY_QueueName ",
+                  {"Ref" : "EncodingsQueue" },
+                  " /m"
+                  ]]}
+              }
+            }
+          }
+        }
+      },
       "Properties": {
         "ImageId": "ami-c21b2ca8",
         "InstanceType": {
@@ -26,7 +48,28 @@
         },
         "IamInstanceProfile": {
           "Ref": "EncoderInstanceProfile"
+        },
+        "UserData" : { "Fn::Base64" : { "Fn::Join" : ["", [
+          "<script>\n",
+          "cfn-init.exe -v -s ", { "Ref" : "AWS::StackName" },
+          " -r EncoderLaunchConfiguration",
+          " --region ", { "Ref" : "AWS::Region" }, "\n",
+
+          "cfn-signal.exe -e %ERRORLEVEL% ", { "Fn::Base64" : { "Ref" : "EncoderWaitHandle" }}, "\n",
+          "</script>"
+          ]]}
         }
+      }
+    },
+    "EncoderWaitHandle" : {
+      "Type" : "AWS::CloudFormation::WaitConditionHandle"
+    },
+    "EncoderWaitCondition" : {
+      "Type" : "AWS::CloudFormation::WaitCondition",
+      "DependsOn" : "EncoderLaunchConfiguration",
+      "Properties" : {
+        "Handle" : {"Ref" : "EncoderWaitHandle"},
+        "Timeout" : "3600"
       }
     },
     "EncoderAutoScalingGroup" : {
@@ -118,28 +161,38 @@
               "Action": [
                   "s3:ListBucket"
               ],
-              "Resource": [
-                  "arn:aws:s3:::clickberry-encoder-files"
-              ]
+              "Resource": { "Fn::Join" : [
+                  "", [ "arn:aws:s3:::", { "Ref" : "FilesBucket" } ]
+               ] }
             },
             {
               "Effect": "Allow",
               "Action": [
                   "s3:*"
               ],
-              "Resource": [
-                  "arn:aws:s3:::clickberry-encoder-files/*"
-              ]
+              "Resource": { "Fn::Join" : [
+                  "", [ "arn:aws:s3:::", { "Ref" : "FilesBucket" } , "/*" ]
+               ] }
             },
             {
-              "Resource": "arn:aws:sqs:*:*:clickberry-encoder-queue",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "EncodingsQueue",
+                  "Arn"
+                ]
+              },
               "Action": [
                   "sqs:*"
               ],
               "Effect": "Allow"
             },
             {
-              "Resource": "arn:aws:sqs:*:*:clickberry-encoder-queue-dead",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "EncodingsDeadQueue",
+                  "Arn"
+                ]
+              },
               "Action": [
                   "sqs:*"
               ],
@@ -164,21 +217,19 @@
         ]
       }
     },
-    "EncoderBucket": {
+    "FilesBucket": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "AccessControl": "Private",
-        "BucketName": "clickberry-encoder-files"
+        "AccessControl": "Private"
       }
     },
-    "EncoderQueue": {
+    "EncodingsQueue": {
       "Type": "AWS::SQS::Queue",
       "Properties": {
-        "QueueName": "clickberry-encoder-queue",
         "RedrivePolicy": {
           "deadLetterTargetArn": {
             "Fn::GetAtt": [
-              "EncoderDeadLetterQueue",
+              "EncodingsDeadQueue",
               "Arn"
             ]
           },
@@ -186,10 +237,9 @@
         }
       }
     },
-    "EncoderDeadLetterQueue": {
+    "EncodingsDeadQueue": {
       "Type": "AWS::SQS::Queue",
       "Properties": {
-        "QueueName": "clickberry-encoder-queue-dead"
       }
     }
   },
@@ -301,6 +351,12 @@
         "hs1.8xlarge"
       ],
       "ConstraintDescription": "must be a valid EC2 instance type."
+    }
+  },
+  "Outputs" : {
+    "URL" : {
+      "Description" : "URL of the Clickberry Encoder Cluster",
+      "Value" : { "Fn::Join" : [ "", [ "http://", { "Fn::GetAtt" : ["EncoderLoadBalancer", "CanonicalHostedZoneName"] }]]}
     }
   }
 }
