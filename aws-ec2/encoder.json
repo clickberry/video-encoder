@@ -10,14 +10,14 @@
               "1-set-bucket": {
                 "command": { "Fn::Join" : ["", [
                   "setx CLICKBERRY_BucketName ",
-                  {"Ref" : "FilesBucket" },
+                  { "Fn::GetAtt" : ["FilesBucket", "BucketName"]},
                   " /m"
                   ]]}
               },
               "2-set-queue": {
                 "command": { "Fn::Join" : ["", [
                   "setx CLICKBERRY_QueueName ",
-                  {"Ref" : "EncodingsQueue" },
+                  { "Fn::GetAtt" : ["EncodingsQueue", "QueueName"]},
                   " /m"
                   ]]}
               }
