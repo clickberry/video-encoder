@@ -26,7 +26,7 @@
         }
       },
       "Properties": {
-        "ImageId": "ami-c21b2ca8",
+        "ImageId": { "Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "AMI" ]},
         "InstanceType": {
           "Ref": "InstanceType"
         },
@@ -244,6 +244,16 @@
     }
   },
   "Mappings": {
+    "RegionMap" : {
+      "us-east-1"      : { "AMI" : "ami-c21b2ca8"},
+      "us-west-1"      : { "AMI" : "ami-c21b2ca8"},
+      "us-west-2"      : { "AMI" : "ami-c21b2ca8"},
+      "eu-west-1"      : { "AMI" : "ami-c21b2ca8"},
+      "sa-east-1"      : { "AMI" : "ami-c21b2ca8"},
+      "ap-southeast-1" : { "AMI" : "ami-c21b2ca8"},
+      "ap-southeast-2" : { "AMI" : "ami-c21b2ca8"},
+      "ap-northeast-1" : { "AMI" : "ami-c21b2ca8"}
+    },
     "Region2Principal": {
       "us-east-1": {
         "EC2Principal": "ec2.amazonaws.com",
